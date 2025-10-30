@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">P1_TarjetaPresentacion_Jorge_Marcos_Alejandro</string>
+    <string name="numeroTelefono">+34 123456789</string>
+    <string name="emailEmpresa">abcd@brelyn</string>
+    <string name="emailPersona">email@domail.com</string>
 </resources>
