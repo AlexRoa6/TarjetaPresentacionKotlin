@@ -85,7 +85,7 @@ fun ImagenEInformacionDeAbajo(imagenPainter: Painter, informacion: String){
         Image(
             painter = imagenPainter,
             contentDescription = null,
-            modifier = Modifier.size(24.dp)
+            modifier = Modifier.size(24.dp).padding(end = 8.dp)
         )
         Text(
             text = informacion,
