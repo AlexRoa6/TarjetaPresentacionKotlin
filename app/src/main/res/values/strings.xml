@@ -3,4 +3,6 @@
     <string name="numeroTelefono">+34 123456789</string>
     <string name="emailEmpresa">abcd@brelyn</string>
     <string name="emailPersona">email@domail.com</string>
+    <string name="nombres">Jorge, Alex y Marcos</string>
+    <string name="Titulo">Tarjeta Presentacion</string>
 </resources>
