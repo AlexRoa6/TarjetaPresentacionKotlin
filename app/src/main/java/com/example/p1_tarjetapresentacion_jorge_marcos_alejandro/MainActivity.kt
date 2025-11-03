@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -48,7 +49,7 @@ fun ImagenPrincipal(painter: Painter) {
         painter = painter,
         contentDescription = null,
         modifier = Modifier
-            .size(120.dp) // tamaño del logo o imagen
+            .size(120.dp)
     )
 }
 
@@ -105,9 +106,9 @@ fun ImagenEInformacionDeAbajo(imagenPainter: Painter, informacion: String) {
  * La funcion crea los elementos de informacion
  */
 @Composable
-fun ParteAbajo() {
+fun ParteAbajo(modifier: Modifier = Modifier) {
     Column(
-        verticalArrangement = Arrangement.spacedBy(12.dp)
+        modifier = modifier
     ) {
         ImagenEInformacionDeAbajo(
             painterResource(R.drawable.telefono),
@@ -138,7 +139,7 @@ fun ComposeTarjetaPresentacionApp() {
     )
     Box(modifier = Modifier.fillMaxSize()) {
 
-        // --- CENTRO: Imagen + Nombre + Título ---
+
         Column(
             modifier = Modifier
                 .align(Alignment.Center)
@@ -149,17 +150,13 @@ fun ComposeTarjetaPresentacionApp() {
             ImagenPrincipal(painter = painterResource(R.drawable.kotlin))
             Spacer(modifier = Modifier.height(16.dp))
             TituloTarjeta()
-        }
 
-        // --- ABAJO: Información de contacto ---
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 16.dp, vertical = 24.dp),
-            contentAlignment = Alignment.BottomCenter // centrado en la parte inferior
-        ) {
-            ParteAbajo()
         }
+        ParteAbajo(modifier = Modifier
+            .align(Alignment.BottomCenter)
+            .padding(bottom = 32.dp)
+        )
+
     }
 }
 
