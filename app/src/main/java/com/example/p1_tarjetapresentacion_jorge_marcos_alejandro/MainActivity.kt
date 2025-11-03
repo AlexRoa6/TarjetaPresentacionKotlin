@@ -13,6 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -37,6 +39,9 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/**
+ * Funcion que define la Imagen del centro
+ */
 @Composable
 fun ImagenPrincipal(painter: Painter) {
     Image(
@@ -47,6 +52,9 @@ fun ImagenPrincipal(painter: Painter) {
     )
 }
 
+/**
+ * Funcion que muestra los nombress y el titulo
+ */
 @Composable
 fun TituloTarjeta() {
     Column(
@@ -55,17 +63,23 @@ fun TituloTarjeta() {
         Text(
             text = stringResource(R.string.nombres),
             fontWeight = FontWeight.Bold,
-            fontSize = 24.sp
+            fontSize = 24.sp,
+            color = colorResource(R.color.white)
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = stringResource(R.string.Titulo),
             fontWeight = FontWeight.SemiBold,
-            fontSize = 16.sp
+            fontSize = 16.sp,
+            color = colorResource(R.color.white)
         )
     }
 }
 
+/**
+ * La funcion se usa dentro de ParteAbajo(), define la fila con su imagen
+ * y el texto que sigue
+ */
 @Composable
 fun ImagenEInformacionDeAbajo(imagenPainter: Painter, informacion: String) {
     Row(
@@ -76,16 +90,20 @@ fun ImagenEInformacionDeAbajo(imagenPainter: Painter, informacion: String) {
             painter = imagenPainter,
             contentDescription = null,
             modifier = Modifier
-                .size(24.dp)
+                .size(36.dp)
                 .padding(end = 8.dp)
         )
         Text(
             text = informacion,
-            fontSize = 14.sp
+            fontSize = 24.sp,
+            color = colorResource(R.color.white)
         )
     }
 }
 
+/**
+ * La funcion crea los elementos de informacion
+ */
 @Composable
 fun ParteAbajo() {
     Column(
@@ -106,8 +124,18 @@ fun ParteAbajo() {
     }
 }
 
+/**
+ * La funcion que construye la app llamando a todas las demas funciones
+ * y posicionando cada elemento donde corresponde
+ */
 @Composable
 fun ComposeTarjetaPresentacionApp() {
+    Image(
+        modifier = Modifier.fillMaxSize(),
+        painter = painterResource(R.drawable.fondo),
+        contentDescription = null,
+        contentScale = ContentScale.Crop
+    )
     Box(modifier = Modifier.fillMaxSize()) {
 
         // --- CENTRO: Imagen + Nombre + Título ---
